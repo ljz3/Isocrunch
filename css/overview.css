@@ -82,7 +82,7 @@ body {
   }
   html{
 	
-	background: url("https://static1.squarespace.com/static/5750d5129f72662d66448028/587c5777ebbd1ab22e094137/589968376b8f5bbffd70ed0b/1512948696350/Pushup+Background.jpg?format=1500w") rgba(52, 73, 94,0.4);
+	background: url("../img/Pushup+Background.jpg") rgba(52, 73, 94,0.4);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
