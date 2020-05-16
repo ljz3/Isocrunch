@@ -112,7 +112,7 @@ function createWorkout(muscleGroups,diff,length){
     }
     return totalArr;
 }
-console.log(createWorkout([shoulderWorkouts, calveWorkouts, lowerBackWorkouts, lowerChestWorkouts], 5,3))
+
 
 
 
@@ -164,7 +164,9 @@ function makeWorkoutArray(){
     var length = parseInt(document.getElementById(lengthOfWorkout).value);
 
 
-    document.getElementById('log').innerHTML +=('<br>' + muscles);
+    console.log(muscles);
+    console.log(diff);
+    console.log(length);
     return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
     
 };
