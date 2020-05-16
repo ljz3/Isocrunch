@@ -5,15 +5,21 @@
 		height:100%;
 		margin: auto;
 		text-align: center;
+		font-size: 37px;
+		font-family: Georgia, serif;
 		
 		z-index: 3;
 	  }
+	  h1{
+		color: aliceblue;
+	  }
+
 
 
  ul{	 
 position: absolute;
 left:50%;
-top: 1000px;
+top: 1050px;
 transform: translate(-50%, -700px);
 width:540px;
 display: inline-block;
@@ -28,13 +34,13 @@ z-index: 3;
 li {
     list-style-type: none; 
     width:540px;
-    height:30px;
-	
+	height:35px;
+	color: white;
 	position: relative;
 	margin: 10;
 	text-align: center;
-	font-family:'Times New Roman';
-	font-size: large;
+	font-family: 'Lucida Sans Unicode';
+	font-size: 28px;
 	font-weight: bold;
 	z-index: 3;
 
@@ -43,7 +49,7 @@ li {
   /*Button*/
 a{
 	line-height:4;
-	color:white;
+	color:black;
 	font-weight: bolder;
 	text-decoration: none;
 	position: absolute;
@@ -51,7 +57,7 @@ a{
     border-radius: 25px;
 	width:100px;
 	height:60px;
-	background:#cca0c5;
+	background:rgba(189, 195, 199,1.0);
 	padding:20px;
 	position: relative;
 	top:20%;
@@ -60,7 +66,8 @@ a{
 	
 }
 a:hover {
-color:yellow;
+color:rgba(189, 195, 199,1.0);
+background: black;
 }
 
 a.active{
@@ -75,13 +82,14 @@ body {
   }
   html{
 	
-	background: url("../img/rohan-aggarwal-EShGwCZs3Nc-unsplash.jpg")rgba(255, 0, 150, 0.3);
+	background: url("https://static1.squarespace.com/static/5750d5129f72662d66448028/587c5777ebbd1ab22e094137/589968376b8f5bbffd70ed0b/1512948696350/Pushup+Background.jpg?format=1500w") rgba(52, 73, 94,0.4);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100%;
 	margin: 0;
 	background-blend-mode: multiply;
+	
 
 	
   }
