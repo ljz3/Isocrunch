@@ -7,13 +7,16 @@ var abWorkouts = [["Plank Hops", 1, true,null], ["Pushup Position Plank", 1, fal
 ["Lateral Plank Walks",4,true, "Plank"], ["Jackhammers",5,true, "Situp"]];
 
 
+
 var upperChestWorkouts = [["Tension Pushup Hold",1,false, null],["Isometric Chest Push",1,true,null],["Pushups",3,true, "Knee Pushups"],
 ["Shoulder Tap Pushups",4,true, "Shoulder Tap Knee Pushups"],["Burpees",4,true, "Burpees With Knee Pushups"],
 ["Decline Pushups", 5, true, "Knee Decline Pushups"], ["Clap Pushups",6,true, "Clap Knee Pushups"],["Archer Pushups", 8, true, "Knee Archer Pushups"]];
 
 
+
 var lowerChestWorkouts = [ ["Incline Tension Pushup Hold",1,false, null], ["Isometric Chest Push",1,true,null],["Incline Pushup", 2, true, "Knee Incline Pushup"],
 ["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false]];
+
 
 
 var tricepWorkouts = [["Incline Tension Pushup Hold",1,false, null],["Incline Pushup", 1, true, "Knee Incline Pushup"],["Tricep Dips",3,false,null]
@@ -140,8 +143,20 @@ var downloadTimer = setInterval(function(timeleft){
     Creates workout array using set values and returns that whole array. 
 */
 function makeWorkoutArray(){
-
+    //array of all potential clicked exercises
+    var potentials = ["upperChest","lowerChest","calves","quads","hamstrings","glutes","biceps","triceps","upperBack","lowerBack"];
+    var muscles = [];
     //get array of muscles
+    for(var i = 0; i < potentials.length; i++){
+
+        var check =document.getElementById(potentials[i])
+        if(check.checked){
+            muscles.push(potentials[i]);
+        }
+    }
+
+
+    
 
     //get difficulty
     var diff = document.getElementById(myRange).value;
@@ -149,7 +164,71 @@ function makeWorkoutArray(){
     var length = parseInt(document.getElementById(lengthOfWorkout).value);
 
 
-
-   return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
+    document.getElementById('log').innerHTML +=('<br>' + muscles);
+    return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
     
 };
+
+
+function makeList(listData1) {
+    // Establish the array which acts as a data source for the list
+    let listData = [
+        'I',
+        'Am',
+        'Very',
+        'Sad',
+        ':(',
+        'I',
+        'Am',
+        'Very',
+        'Sad',
+        ':(',
+        'I',
+        'Am',
+        'Very',
+        'Sad',
+        ':(',
+        'I',
+        'Am',
+        'Very',
+        'Sad',
+        ':(',
+        'I',
+        'Am',
+        'Very',
+        'Sad',
+        ':(',
+        'I',
+        'Am',
+        'Very',
+        'Sad',
+        ':(',
+    ],
+    // Make a container element for the list
+    listContainer = document.createElement('div'),
+    // Make the list
+    listElement = document.createElement('ul'),
+    // Set up a loop that goes through the items in listItems one at a time
+    numberOfListItems = listData.length,
+    listItem,
+    i;
+
+    // Add it to the page
+    document.getElementsByTagName('body')[0].appendChild(listContainer);
+    listContainer.appendChild(listElement);
+    
+
+    for (i = 0; i < numberOfListItems; ++i) {
+        // create an item for each one
+        listItem = document.createElement('li');
+
+        // Add the item text
+        listItem.innerHTML = listData[i];
+
+        // Add listItem to the listElement
+        listElement.appendChild(listItem);
+    }
+}
+
+// Usage
+makeList();
