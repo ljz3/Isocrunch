@@ -21,3 +21,21 @@ var tricepWorkouts = [["Incline Pushup", 2, true, "Knee Incline Pushup"],["Trice
 ["Pushups",3,true, "Knee Pushups"],
 ["Shoulder Tap Pushups",4,true, "Shoulder Tap Knee Pushups"],["Burpees",4,true, "Burpees With Knee Pushups"],
 ["Lateral Plank Walks",4,true, "Plank"],["Clap Pushups",6,true, "Clap Knee Pushups"]];
+
+var calveWorkouts = [["High Knees",1,false,null], ["Calf Raises",1,false,null], ["Jump Squats",3,true,null]];
+
+var quadWorkouts = [["High Knees",1,false,null], ["Wall sit",2,false,null], ["Mountain Climbers",3,false,null],
+["Burpees",4,true,"Burpee With Knee Pushup",null]["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
+
+var hamWorkouts = [["Hip Bridges",1,Off,null], ["Mountain Climbers",3,Off,null], ["Jump Squats",3,On,null],
+["One Legged Squat",7,On,"Squat"], ["Pistol Squat",9,On,"Squat"]];
+
+var upperBackWorkouts = [["Diving Dolphin",3,Off,null], ["Back Widows",7,On,"Reverse Snow Angels"]];
+
+var upperBackWorkouts = [["Hip Bridges",1,Off,null], ["Reverse Snow Angels",2,On,null],["Reverse Superman",2,Off,null], ["Superman",3,Off,null]];
+
+var shoulderWorkouts = [["Shoulder Press on Floor",2,On, ], ["Diving dolphin",3,Off, ], ["Plank Raise Tap Crunch",4,Off,"Plank"],
+["Shoulder Tap Pushups",4,On,"Shoulder Tap Knee Pushups"], ["Lateral Plank Walks",4,On,"Plank"], ["Decline Pushup",5,On,"Knee Decline Pushup"],
+["Archer Pushups",8,On,"Knee Archer Pushups"]];
+
+var bicepWorkouts =[[]];
