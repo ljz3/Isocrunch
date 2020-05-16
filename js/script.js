@@ -187,16 +187,17 @@ function makeWorkoutArray(){
     
 
     //get difficulty
-    //var diff = document.getElementById(demo).value;
-    //get length
-    //var length = parseInt(document.getElementById(lengthOfWorkout).value);
+    //var slider = document.getElementById("myRange").value;
 
+    //get length
+    var len = document.getElementById("#fname");
+    var length = parseInt(len.textContent);
 
     //console.log(muscles);
     //console.log(diff);
     //console.log(length);
     
-    console.log(createWorkout(exerciseGroups,5,10));
+    console.log(createWorkout(exerciseGroups,length,20));
 
 
     //return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
