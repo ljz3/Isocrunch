@@ -94,16 +94,16 @@ function createWorkout(muscleGroups,diff,length){
     Function to do a countdown timer. (timeleft) must be an integer of 40||20 depending on, "on/off" exercise
 */
 var downloadTimer = setInterval(function(timeleft){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer); //stops ticking
-    document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
-    /*
-        Add code here for end
-    */
-} 
-else {
-  document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
-                                                                                    //Element by ID gets the id in html corresponding here
-}
-timeleft -= 1;
+    if(timeleft <= 0){
+        clearInterval(downloadTimer); //stops ticking
+        document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
+        /*
+            Add code here for end
+        */
+    } 
+    else {
+        document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
+                                                                                //Element by ID gets the id in html corresponding here
+    }
+    timeleft -= 1;
 }, 1000);
