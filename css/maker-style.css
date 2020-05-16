@@ -2,7 +2,7 @@
 
 
 .main{
-    background: url("../img/rohan-aggarwal-EShGwCZs3Nc-unsplash.jpg");
+    background: url("../img/pull-ups-for-bigger-back.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -22,7 +22,7 @@
     width: 100%;
     height: 7%;
     padding: -25px;
-    background-color:#7f8fa6;
+    background-color:#2c3e50;
     color: white;
     text-align:left;
     font-family:Impact, Charcoal, sans-serif;
@@ -39,7 +39,7 @@
     bottom: 0;
     width: 100%;
     height: 10%;
-    background-color:#7f8fa6;
+    background-color:#2c3e50;
     color: white;
     text-align:center;
 
@@ -51,10 +51,11 @@
     padding: 25px;
     border-radius: 25px;
     border: 2px black;
-    background-color:rgb(238, 82, 83,0.7);
+    background-color:rgb(127, 140, 141,0.7);
     left: 750px;
     top: 125px;
     font-weight: bolder;
+    color:white;
 }
 
 
@@ -65,7 +66,7 @@
     padding: 17px;
     border-radius: 25px;
     border: 2px black;
-    background-color: #ee5253;
+    background-color: rgb(127, 140, 141);
     
     left: 975px;
     top: 200px;
@@ -95,14 +96,14 @@
   appearance: none;
   width: 25px;
   height: 25px;
-  background: #ee5253;
+  background: rgb(127, 140, 141);
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: #ee5253;
+  background: rgb(127, 140, 141);
   cursor: pointer;
 }
 
@@ -130,7 +131,7 @@ a.active{
 }
 a.generate{
     border-radius: 45px;
-    background:#ee5253;
+    background:rgb(127, 140, 141);
     padding:40px;
     position:relative;
     top:717px;
