@@ -18,7 +18,7 @@ var upperChestWorkouts = [["Tension Pushup Hold",1,false, null],["Isometric Ches
 
 
 var lowerChestWorkouts = [ ["Incline Tension Pushup Hold",1,false, null], ["Isometric Chest Push",1,true,null],["Incline Pushup", 2, true, "Knee Incline Pushup"],
-["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false]];
+["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false, null]];
 
 
 
@@ -187,17 +187,18 @@ function makeWorkoutArray(){
     
 
     //get difficulty
-    //var slider = document.getElementById("myRange").value;
+    var slider = document.getElementById("myRange");
+    var diff = slider.value;
 
     //get length
-    var len = document.getElementById("#fname");
-    var length = parseInt(len.textContent);
+    var len = document.getElementById("fname");
+    var length = parseInt(len.value);
 
     //console.log(muscles);
     //console.log(diff);
     //console.log(length);
     
-    console.log(createWorkout(exerciseGroups,length,20));
+    console.log(createWorkout(exerciseGroups,diff,length));
 
 
     //return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
