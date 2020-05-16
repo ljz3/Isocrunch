@@ -1,4 +1,7 @@
 
+
+
+
 //initialization of arrays storing all the workouts able to be used
 
 var abWorkouts = [["Plank Hops", 1, true,null], ["Pushup Position Plank", 1, false,null], ["Situps",2, true, null],
@@ -231,6 +234,3 @@ function makeList(listData1) {
         listElement.appendChild(listItem);
     }
 }
-
-// Usage
-makeList();
