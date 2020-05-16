@@ -4,7 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <head>
+    <script type="text/javascript" src = "script.js"></script>
+
 <style>
+
 
 * {
   box-sizing: border-box;
@@ -227,7 +230,7 @@ a.generate{
 
 
                 <!--Text Field-->
-                <div class= "textfield">
+                <div class= "textfield" id = "lengthOfWorkout">
 
                     <form>
                         <label for="fname">Time Frame:</label><br>
@@ -272,7 +275,7 @@ a.generate{
                 <!--Button-->
                 <div class = "a a.generate">
 
-                    <a class = "generate" onclick="window.location.href = 'index.html';" type="button">Generate Workout</a>
+                    <a class = "generate" onclick="window.location.href = 'index.html' ; makeWorkoutArray()" type="button">Generate Workout</a>
                         
 
                 </div>
