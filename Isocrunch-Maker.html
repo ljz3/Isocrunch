@@ -9,20 +9,34 @@
 <style>
 
 
-* {
-  box-sizing: border-box;
+
+.main{
+    background: url("../img/rohan-aggarwal-EShGwCZs3Nc-unsplash.jpg")rgba(255, 0, 150, 0.3);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100%;
+	margin: 0;
+	background-blend-mode: multiply;
+    
 }
 
 .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
     height: 7%;
-    background-color:#2c3e50;
+    padding: -25px;
+    background-color:#7f8fa6;
     color: white;
-    text-align:center;
-
+    text-align:left;
+    font-family:Impact, Charcoal, sans-serif;
+    font-size: 30px
+    
 }
 
 
@@ -34,7 +48,7 @@
     bottom: 0;
     width: 100%;
     height: 10%;
-    background-color:#2c3e50;
+    background-color:#7f8fa6;
     color: white;
     text-align:center;
 
@@ -46,36 +60,58 @@
     padding: 25px;
     border-radius: 25px;
     border: 2px black;
-    background-color: gray;
-    left: 450px;
+    background-color:rgb(238, 82, 83,0.7);
+    left: 750px;
     top: 125px;
     font-weight: bolder;
 }
 
+
+
 .textfield{
     position:fixed;
-    width: 12%;
-    padding: 25px;
+    width: 10%;
+    padding: 20px;
     border-radius: 25px;
     border: 2px black;
-    background-color: gray;
-    left: 860px;
-    top: 300px;
+    background-color: #ee5253;
+    
+    left: 975px;
+    top: 200px;
     font-weight: bolder;
 }
 
-.slider{
-    position:fixed;
-    border-radius: 25px;
-    background-color: gray;
-    left: 1270px;
-    top: 325px;
-    width: 15%;
-    
+.slider {
+  -webkit-appearance: none;
+  position:fixed; 
+  left:990px; 
+  top:400px;
+  width: 10%;
+  height: 25px;
+  background: white;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
 
 .slider:hover {
   opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #ee5253;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #ee5253;
   cursor: pointer;
 }
 
@@ -84,16 +120,17 @@
 
 a{
     line-height:4;
-    color:white;
+    color:black;
     font-weight: bolder;
     text-decoration: none;
     margin-left:40px;
     position: relative;
-    top:600px;
+    top:720px;
     left:670px;
+    size: 100px 100px;
 }
 a:hover {
-color:black;
+color:white;
 cursor:pointer;
 }
 
@@ -101,66 +138,32 @@ a.active{
     color:lime;
 }
 a.generate{
-    border-radius: 25px;
-    width:100px;
-    height:60px;
-    background:#1abac5;
-    padding:20px;
+    border-radius: 45px;
+    background:#ee5253;
+    padding:40px;
     position:relative;
-    top:617px;
+    top:737px;
     left:830px;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-.column {
-  float: left;
-  padding: 10px;
- 
-}
-
-
-.column.side {
-  width: 12.5%;
-}
-
-
-.column.middle {
-  width: 75%;
-}
-
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-@media (max-width: 600px) {
-  .column.side, .column.middle {
-    width: 100%;
-  }
-}
 
 </style>
 </head>
 
 
-<body>
+<body class = "main">
     
     
     <div class="header">
 
-        <p>Help me</p>
+        <p style = "position:relative; left:-800px;">Help me</p>
     
     </div>
             
             <div>
                 
                 <!--Checkboxes-->
-                <div class = "checkboxes">
+                <div class = "checkboxes checkboxes hover">
                         
                     <!--Checkbox Script -->
                     <script language="JavaScript">
@@ -191,37 +194,62 @@ a.generate{
                         checkboxes[i].checked = source.checked;
                             }
                         } 
+
+                        function toggle_full(source) {
+                        checkboxes = document.getElementsByName("Chest");
+                        for(var i=0, n=checkboxes.length;i<n;i++) {
+                        checkboxes[i].checked = source.checked;
+                            }
+                        checkboxes = document.getElementsByName("Legs");
+                        for(var i=0, n=checkboxes.length;i<n;i++) {
+                        checkboxes[i].checked = source.checked;
+                            }
+                        checkboxes = document.getElementsByName("Arms");
+                        for(var i=0, n=checkboxes.length;i<n;i++) {
+                        checkboxes[i].checked = source.checked;
+                            }
+                        checkboxes = document.getElementsByName("Back");
+                        for(var i=0, n=checkboxes.length;i<n;i++) {
+                        checkboxes[i].checked = source.checked;
+                            }
+                        } 
                     
                         </script>
 
                         <div>
+                            <!--Full Body Checkboxes-->
+                            <dl><input type="checkbox" onClick="toggle_full(this)" />Full Body<br/></dl>
+                            
+                        </div>
+
+                        <div>
                             <!--Chest Checkboxes-->
-                            <dl><input type="checkbox" onClick="toggle_chest(this)" />Chest<br/></dl>
-                            <dd><input type="checkbox" name="Chest" value="Upper Chest">Upper Chest<br/></dd>
-                            <dd><input type="checkbox" name="Chest" value="Lower Chest">Lower Chest<br/></dd>
+                            <dl><input type="checkbox" name="Chest" onClick="toggle_chest(this)" />Chest<br/></dl>
+                            <dd><input type="checkbox" name="Chest" id="upperChest" value="Upper Chest">Upper Chest<br/></dd>
+                            <dd><input type="checkbox" name="Chest" id="lowerChest" value="Lower Chest">Lower Chest<br/></dd>
                         </div>
                         
                         <div>
                             <!--Legs Checkboxes-->
-                            <dl><input type="checkbox" onClick="toggle_legs(this)" />Legs<br/></dl>
-                            <dd><input type="checkbox" name="Legs" value="Calves">Calves<br/></dd>
-                            <dd><input type="checkbox" name="Legs" value="Quads">Quads<br/></dd>
-                            <dd><input type="checkbox" name="Legs" value="Hamstrings">Hamstrings<br/></dd>
-                            <dd><input type="checkbox" name="Legs" value="Glutes">Glutes<br/></dd>
+                            <dl><input type="checkbox" name="Legs"onClick="toggle_legs(this)" />Legs<br/></dl>
+                            <dd><input type="checkbox" name="Legs" id = "calves" value="Calves">Calves<br/></dd>
+                            <dd><input type="checkbox" name="Legs" id = "quads" value="Quads">Quads<br/></dd>
+                            <dd><input type="checkbox" name="Legs" id = "hamstrings" value="Hamstrings">Hamstrings<br/></dd>
+                            <dd><input type="checkbox" name="Legs" id = "glutes" value="Glutes">Glutes<br/></dd>
                         </div>
                             
                         <div>
                             <!--Arms Checkboxes-->
-                            <dl><input type="checkbox" onClick="toggle_arms(this)" />Arms<br/></dl>
-                            <dd><input type="checkbox" name="Arms" value="Biceps">Biceps<br/></dd>
-                            <dd><input type="checkbox" name="Arms" value="Triceps">Triceps<br/></dd>
+                            <dl><input type="checkbox" name="Arms" onClick="toggle_arms(this)" />Arms<br/></dl>
+                            <dd><input type="checkbox" name="Arms" id = "biceps" value="Biceps">Biceps<br/></dd>
+                            <dd><input type="checkbox" name="Arms" id = "triceps" value="Triceps">Triceps<br/></dd>
                         </div>
 
                         <div>
                             <!--Back Checkboxes-->
-                            <dl><input type="checkbox" onClick="toggle_back(this)" />Back<br/></dl>
-                            <dd><input type="checkbox" name="Back" value="Upper Back">Upper Back<br/></dd>
-                            <dd><input type="checkbox" name="Back" value="Lower Back">Lower Back<br/></dd>
+                            <dl><input type="checkbox" name="Back" onClick="toggle_back(this)" />Back<br/></dl>
+                            <dd><input type="checkbox" name="Back" id = "upperBack" value="Upper Back">Upper Back<br/></dd>
+                            <dd><input type="checkbox" name="Back" id = "lowerBack" value="Lower Back">Lower Back<br/></dd>
                         </div>    
 
                             
@@ -233,7 +261,7 @@ a.generate{
                 <div class= "textfield" id = "lengthOfWorkout">
 
                     <form>
-                        <label for="fname">Time Frame:</label><br>
+                        <label for="fname">Time Frame in min:</label><br>
                         <input type="text" id="fname" value=""><br><br>
                             
                     </form> 
@@ -250,7 +278,7 @@ a.generate{
                     <div class = "slidercontainer">
 
                         <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
-                        <p style = "position:relative; left:1340px; top:350px;">Difficulty: <span id="demo"></span></p>
+                        <p style = "background-color:#ee5253; border-radius:25px; padding:5px; position:fixed; left:1035px; top:350px; font-weight: bolder;">Difficulty: <span id="demo"></span> </p>
 
                     </div>
 
@@ -266,6 +294,9 @@ a.generate{
                     </script>
 
                     </div>
+                    
+
+                    <div id="log">initial content</div>
 
 
 
@@ -290,4 +321,7 @@ a.generate{
     
 
 </body>
+
+
+
 </html>
