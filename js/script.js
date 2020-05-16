@@ -146,6 +146,7 @@ function makeWorkoutArray(){
     //array of all potential clicked exercises
     var potentials = ["upperChest","lowerChest","calves","quads","hamstrings","glutes","biceps","triceps","upperBack","lowerBack"];
     var muscles = [];
+
     //get array of muscles
     for(var i = 0; i < potentials.length; i++){
         console.log(potentials[i]);
@@ -159,15 +160,20 @@ function makeWorkoutArray(){
     
 
     //get difficulty
-    var diff = document.getElementById(myRange).value;
+    //var diff = document.getElementById(demo).value;
     //get length
-    var length = parseInt(document.getElementById(lengthOfWorkout).value);
+    //var length = parseInt(document.getElementById(lengthOfWorkout).value);
 
 
-    console.log(muscles);
-    console.log(diff);
-    console.log(length);
-    return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
+    //console.log(muscles);
+    //console.log(diff);
+    //console.log(length);
+    
+    console.log(createWorkout(muscles,5,10));
+
+
+    return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
+    
     
 };
 
@@ -231,6 +237,3 @@ function makeList(listData1) {
         listElement.appendChild(listItem);
     }
 }
-
-// Usage
-makeList();
