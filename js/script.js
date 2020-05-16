@@ -181,7 +181,7 @@ function makeWorkoutArray(){
 };
 
 
-function makeList(listData1) {
+function makeList(listData) {
     // Establish the array which acts as a data source for the list
 
     // Make a container element for the list
