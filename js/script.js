@@ -39,3 +39,29 @@ var shoulderWorkouts = [["Shoulder Press on Floor",2,true,null], ["Diving dolphi
 ["Archer Pushups",8,true,"Knee Archer Pushups"]];
 
 var bicepWorkouts =[[]];
+
+
+/*
+    Function meant to find an exercise from a specific muscle group
+    Input values must be (array,int,booolean)  -> (true-on)(false-off)
+*/
+function findExercises(muscleGroup,diff,on){ 
+
+    var exercise = null; //storage of variable being returned
+
+    
+    do{
+        exercise = muscleGroup[Math.floor(Math.random()*muscleGroup.length)]; //random workout 
+        
+        if((exercise[1] < diff) && (exercise[2] == on )){ //limits higher than difficulty and on/off must match
+            flag = true;
+            
+        }
+        else
+            flag = false;
+    }while(flag == false)
+
+    return exercise;  
+};
+
+
