@@ -164,7 +164,7 @@ function makeWorkoutArray(){
     var length = parseInt(document.getElementById(lengthOfWorkout).value);
 
 
-    console.log(muscles)
+    document.getElementById('log').innerHTML +=('<br>' + muscles);
     return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
     
 };
