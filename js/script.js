@@ -1,3 +1,13 @@
+/*
+    TODO:
+
+    1. Timer function needs fixing up. Problem with resetting it, runs faster for some reason with overlapping numbers. Parallel instances. Need fix
+        Also appears to not work with trying to set to 20 seconds. Not sure why.
+*/
+
+
+
+
 
 //initialization of arrays storing all the workouts able to be used
 
@@ -88,22 +98,47 @@ function createWorkout(muscleGroups,diff,length){
         }
     }
     return totalArr;
-}
+};
 
 /*
-    Function to do a countdown timer. (timeleft) must be an integer of 40||20 depending on, "on/off" exercise
+    Function to show the workout 
+    Takes the array from totalArr and the hardcoded map with images
+
 */
-var downloadTimer = setInterval(function(timeleft){
-  if(timeleft <= 0){
-    clearInterval(downloadTimer); //stops ticking
-    document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
-    /*
-        Add code here for end
-    */
-} 
-else {
-  document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
-                                                                                    //Element by ID gets the id in html corresponding here
+function showWorkout(workout,map){ 
+
+    //code here
 }
-timeleft -= 1;
-}, 1000);
+
+
+
+
+/*
+    Function to do a countdown timer. on/off must be true|false based on workout
+*/
+
+function downloadTimer(on){
+    if(on)
+        var timeLeft = 40;
+    else
+        var timeLeft = 20;
+
+    
+    setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(downloadTimer); 
+            document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
+            /*
+                Add code here for end
+            */
+        } 
+        else {
+          document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
+                                                                                            //Element by ID gets the id in html corresponding here
+        }
+            timeleft -= 1;
+    
+    },1000);
+    timeleft = 40;
+    clearInterval(downloadTimer);
+};   
