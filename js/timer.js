@@ -1,4 +1,4 @@
-import { createWorkout } from './script.js'
+// import { createWorkout } from './script.js'
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
