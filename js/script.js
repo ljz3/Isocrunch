@@ -119,7 +119,6 @@ function createWorkout(muscleGroups,diff,length){
 
 
 
-
 /*
     Creates workout array using set values and returns that whole array. 
 */
@@ -198,11 +197,13 @@ function makeWorkoutArray(){
     
     //console.log(createWorkout(exerciseGroups,diff,length));
 
-
+    
     return (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
     
     
 };
+
+
 
 
 function makeList(listData) {
