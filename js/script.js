@@ -137,30 +137,70 @@ function makeWorkoutArray(){
         }
     }
 
-    
+
+    //adds exercise variable arrays in orderd to call the makeWorkout
+    var exerciseGroups = [];
     for(var j = 0; j < muscles.length; j++){
 
         switch(muscles[j]){
             case "upperChest":
+                exerciseGroups.push(upperChestWorkouts);
+                break;
 
+            case "lowerChest":
+                exerciseGroups.push(lowerChestWorkouts);
+                break;
+
+            case "calves":
+                exerciseGroups.push(calveWorkouts);
+                break;
+
+            case "quads":
+                exerciseGroups.push(quadWorkouts);
+                break;
+
+            case "hamstrings":
+                exerciseGroups.push(hamWorkouts);
+                break;
+
+            //case "glutes":
+            //    exerciseGroups.push(gluteWorkouts);
+            //    break;
+
+            case "biceps":
+                exerciseGroups.push(bicepWorkouts);
+                break;
+
+            case "triceps":
+                exerciseGroups.push(tricepWorkouts);
+                break;
+
+            case "upperBack":
+                exerciseGroups.push(upperBackWorkouts);
+                break;
+
+            case "lowerBack":
+                exerciseGroups.push(lowerBackWorkouts);
+                break;
         }
     }
     
 
     //get difficulty
-    //var diff = document.getElementById(demo).value;
-    //get length
-    //var length = parseInt(document.getElementById(lengthOfWorkout).value);
+    //var slider = document.getElementById("myRange").value;
 
+    //get length
+    var len = document.getElementById("#fname");
+    var length = parseInt(len.textContent);
 
     //console.log(muscles);
     //console.log(diff);
     //console.log(length);
     
-    console.log(createWorkout(muscles,5,10));
+    console.log(createWorkout(exerciseGroups,length,20));
 
 
-    return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
+    //return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
     
     
 };
