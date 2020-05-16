@@ -26,7 +26,7 @@ var tricepWorkouts = [["Incline Tension Pushup Hold",1,false, null],["Incline Pu
 var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], ["Jump Squats",3,true,null]];
 
 var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",3,false,null],
-["Burpees",4,true,"Burpee With Knee Pushup",null]["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
+["Burpees",4,true,"Burpee With Knee Pushup",null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
 var hamWorkouts = [["Hip Bridges",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],
 ["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
@@ -54,7 +54,7 @@ function findExercises(muscleGroup,diff,on){
     do{
         exercise = muscleGroup[Math.floor(Math.random()*muscleGroup.length)]; //random workout 
         
-        if((exercise[1] < diff) && (exercise[2] == on )){ //limits higher than difficulty and on/off must match
+        if((exercise[1] <= diff) && (exercise[2] == on )){ //limits higher than difficulty and on/off must match
             flag = true;
             
         }
@@ -67,3 +67,25 @@ function findExercises(muscleGroup,diff,on){
 };
 
 
+function createWorkout(muscleGroups,diff,length){
+
+    var totalArr = [];
+
+    if(length >= muscleGroups.length){
+        var counter = 0;
+        var used = [];
+        while(used.length != length){
+            used.push(0);
+        }
+        while(counter != length){
+            var i = Math.floor(Math.random()*muscleGroups.length);
+            if(used[i] <= Math.ceil(Math.random()*(length/muscleGroups.length))){
+                used[i]++;
+                totalArr.push(findExercises(muscleGroups[i], diff, true));
+                totalArr.push(findExercises(muscleGroups[i], diff, false));
+                counter++;
+            }
+        }
+    }
+    return totalArr;
+}
