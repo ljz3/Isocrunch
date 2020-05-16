@@ -25,7 +25,7 @@ var tricepWorkouts = [["Incline Tension Pushup Hold",1,false, null],["Incline Pu
 
 var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], ["Jump Squats",3,true,null]];
 
-var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",3,false,null],
+var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",1,true,null],
 ["Burpees",4,true,"Burpee With Knee Pushup",null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
 var hamWorkouts = [["Hip Bridges",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],
@@ -38,6 +38,9 @@ var lowerBackWorkouts = [["Hip Bridges",1,true,null], ["Goodmornings",1,false,nu
 var shoulderWorkouts = [["Arm Lift",1,true,null],["Jumping Jacks",1,false,null],["Shoulder Press on Floor",2,true,null], ["Diving dolphin",3,false,null], ["Plank Raise Tap Crunch",4,false,"Plank"],
 ["Shoulder Tap Pushups",4,true,"Shoulder Tap Knee Pushups"], ["Lateral Plank Walks",4,true,"Plank"], ["Decline Pushup",5,true,"Knee Decline Pushup"],
 ["Archer Pushups",8,true,"Knee Archer Pushups"]];
+
+var fullBodyWorkouts = [["Mountain Climbers",1,true,null], ["Burpees",4,true, "Burpees With Knee Pushups"], 
+["Inchworm", 1, false, null],["Tuck Jump", 3, true, null],["Plank to Pushup", 2, true, "Knee Plank to Knee Pushup"]];
 
 var bicepWorkouts =[[]];
 
@@ -70,9 +73,9 @@ function findExercises(muscleGroup,diff,on){
 function createWorkout(muscleGroups,diff,length){
 
     var totalArr = [];
+    var counter = 0;
 
     if(length >= muscleGroups.length){
-        var counter = 0;
         var used = [];
         while(used.length != length){
             used.push(0);
@@ -86,11 +89,23 @@ function createWorkout(muscleGroups,diff,length){
                 counter++;
             }
         }
+    }else{
+        while(counter != length){
+            var i = Math.floor(Math.random()*muscleGroups.length);
+            totalArr.push(findExercises(fullBodyWorkouts, diff, true));
+            totalArr.push(findExercises(fullBodyWorkouts, diff, false));
+            counter++;
+        }
     }
     return totalArr;
 }
+console.log(createWorkout([shoulderWorkouts, calveWorkouts, lowerBackWorkouts, lowerChestWorkouts], 5,3))
+
+
 
 /*
+    BUG: Multiple runes will cause this to run faster due to interval
+
     Function to do a countdown timer. (timeleft) must be an integer of 40||20 depending on, "on/off" exercise
 */
 var downloadTimer = setInterval(function(timeleft){
@@ -107,3 +122,24 @@ var downloadTimer = setInterval(function(timeleft){
     }
     timeleft -= 1;
 }, 1000);
+
+
+
+
+/*
+    Creates workout array using set values and returns that whole array. 
+*/
+function makeWorkoutArray(){
+
+    //get array of muscles
+
+    //get difficulty
+    var diff = document.getElementById(myRange).value;
+    //get length
+    var length = parseInt(document.getElementById(lengthOfWorkout).value);
+
+
+
+   return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
+    
+};
