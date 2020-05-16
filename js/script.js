@@ -100,6 +100,8 @@ function createWorkout(muscleGroups,diff,length){
     return totalArr;
 };
 
+
+
 /*
     Function to show the workout 
     Takes the array from totalArr and the hardcoded map with images
@@ -109,6 +111,10 @@ function showWorkout(workout,map){
 
     //code here
 }
+
+
+
+
 
 
 
