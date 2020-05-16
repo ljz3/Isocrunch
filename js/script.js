@@ -148,14 +148,14 @@ function makeWorkoutArray(){
     var muscles = [];
     //get array of muscles
     for(var i = 0; i < potentials.length; i++){
-
+        console.log(potentials[i]);
         var check =document.getElementById(potentials[i])
         if(check.checked){
             muscles.push(potentials[i]);
         }
     }
 
-
+    
     
 
     //get difficulty
