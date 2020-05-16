@@ -231,6 +231,3 @@ function makeList(listData1) {
         listElement.appendChild(listItem);
     }
 }
-
-// Usage
-makeList();
