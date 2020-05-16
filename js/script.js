@@ -119,28 +119,6 @@ function createWorkout(muscleGroups,diff,length){
 
 
 
-/*
-    BUG: Multiple runes will cause this to run faster due to interval
-
-    Function to do a countdown timer. (timeleft) must be an integer of 40||20 depending on, "on/off" exercise
-*/
-
-/*
-var downloadTimer = setInterval(function(timeleft){
-    if(timeleft <= 0){
-        clearInterval(downloadTimer); //stops ticking
-        document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
-        
-    } 
-    else {
-        document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
-                                                                                //Element by ID gets the id in html corresponding here
-    }
-    timeleft -= 1;
-}, 1000);
-*/
-
-
 
 /*
     Creates workout array using set values and returns that whole array. 
@@ -160,6 +138,13 @@ function makeWorkoutArray(){
     }
 
     
+    for(var j = 0; j < muscles.length; j++){
+
+        switch(muscles[j]){
+            case "upperChest":
+
+        }
+    }
     
 
     //get difficulty
