@@ -194,14 +194,12 @@ function makeWorkoutArray(){
     var len = document.getElementById("fname");
     var length = parseInt(len.value);
 
-    //console.log(muscles);
-    //console.log(diff);
-    //console.log(length);
     
-    console.log(createWorkout(exerciseGroups,diff,length));
+    
+    //console.log(createWorkout(exerciseGroups,diff,length));
 
 
-    //return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
+    return (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
     
     
 };
