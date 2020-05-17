@@ -287,9 +287,9 @@ function startTimer(duration, display) {
             
             if(index < duration.length){
             document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
-            document.getElementById("exerciseName").value = myObject[index][0];
+            document.getElementById("exerciseName").innerHTML = myObject[index][0];
             if(index+1!=duration.length){
-                document.getElementById("exerciseUpcoming").value = myObject[index+1][0];
+                document.getElementById("exerciseUpcoming").innerHTML = myObject[index+1][0];
             }
             
             }
@@ -364,8 +364,8 @@ function timer() {
     }
     // console.log(duration);
     document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[0][0]+".gif";
-    document.getElementById("exerciseName").value = myObject[0][0];
-    document.getElementById("exerciseUpcoming").value = myObject[1][0];
+    document.getElementById("exerciseName").innerHTML= myObject[0][0];
+    document.getElementById("exerciseUpcoming").innerHTML = myObject[1][0];
     startTimer(duration, display);
 };
 
