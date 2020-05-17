@@ -222,7 +222,7 @@ function makeList() {
     // Make a container element for the list
     listContainer = document.createElement('div'),
     // Make the list
-    listElement = document.createElement('ul'),
+    listElement = document.createElement('ol'),
     // Set up a loop that goes through the items in listItems one at a time
     numberOfListItems = listData.length,listItem,i;
 
@@ -236,8 +236,12 @@ function makeList() {
         listItem = document.createElement('li');
 
         // Add the item text
-        listItem.innerHTML = listData[i][0]; //[i][1] gets name
-
+        if(i%2==0){
+        listItem.innerHTML = listData[i][0]+"--40s"; //[i][1] gets name
+        }
+        else{
+            listItem.innerHTML = listData[i][0]+"--20s";
+        }
         // Add listItem to the listElement
         listElement.appendChild(listItem);
     }
