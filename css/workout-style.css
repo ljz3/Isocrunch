@@ -12,24 +12,36 @@
     'image image image time time name'
     'image image image time time upcoming'
     'image image image time time alternate';
-    grid-template-rows: 200px 200px 80px;
+    grid-template-rows: 230px 230px 100px;
   grid-gap: 10px;
   background-color: #2c3e50;
   padding: 10px;
-  margin-top: 15%;
+  margin-top: 10%;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: #ecf0f1;
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
 }
 img#exerciseDisplay{
     position: relative;
+    margin:auto;
     width: 600px;
     height:450px;
     padding: 1px;
     border: 10px black;
 
 }
+html{
+	
+	background: url("https://img.freepik.com/free-vector/background-white-elegant-texture_23-2148438404.jpg?size=626&ext=jpg") rgba(52, 73, 94,0.4);
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100%;
+	margin: 0;
+	background-blend-mode: multiply;
+		
+  }
