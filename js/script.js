@@ -3,6 +3,17 @@
 
 //initialization of arrays storing all the workouts able to be used
 
+var images =["Archer Pushups.gif","Arm Lift.gif","Arm Rotations.gif","Back Widows.gif","Burpees With Knee Pushups.gif","Burpees.gif","Calf Raises.gif","Clap Knee Pushups.gif",
+"Clap Pushups.gif","Crunches.gif","Decline Pushups.gif","Diving Dolphin.gif","Downward Dog Knee Pushups.gif","Downward Dog Pushups.gif",
+"Goodmornings.gif","High Kness.gif","Hip Bridges.gif","Inchworm.gif","Incline Pushup Hold.gif","Incline Pushup.gif","Incline Tension Pushup Hold.gif","Isometric Chest Push.gif",
+"Jackhammers.gif","Jump Squats.gif","Jumping Jacks.gif","Kickstand Deadlift.gif","Knee Archer Pushups.gif","Knee Decline Pushups.gif","Knee Incline Pushup.gif",
+"Knee Plank to Knee Pushup.gif","Knee Pseudo Push.gif","Knee Pushups.gif","Lat Pulldown with Towel.gif","Lateral Plank Walks.gif","Mountain Climbers.gif","One Legged Squat.gif",
+"Partial Plank.gif","Pistol Squat.gif","Plank Hops.gif","Plank Raise Tap Crunch.gif","Plank to Pushup.gif","Plank.gif","Pseudo Pushups.gif","Pushup Position Plank.gif","Pushups.gif",
+"Reverse Knee Push Ups.gif","Reverse Push Ups.gif","Reverse Snow Angels.gif","Reverse Superman.gif","Shoulder Press on Floor.gif","Shoulder Tap Knee Pushups.gif","Shoulder Tap Pushups.gif",
+"Side Lying Curl.gif","Situps.gif","Squat.gif","Standing Calf Raise on Elevated Surface.gif","Superman.gif","Tension Pushup Hold.gif","Tiptoe Walk.gif","Towel Curl.gif","Tricep Dips.gif",
+"Tuck Jump.gif","V Ups.gif","Wall Sit.gif" ]
+
+
 var abWorkouts = [["Plank Hops", 1, true,null], ["Pushup Position Plank", 1, false,null], ["Situps",2, true, null],
 ["Plank",2,false, "Partial Plank"],["Crunches",2,true, null],["Mountain Climbers",3,false,null], 
 ["V Ups",3,true,null],["Plank Raise Tap Crunch", 4, false, "Plank"], ["Shoulder Tap Pushups",4,true, "Shoulder Tap Knee Pushups"],
