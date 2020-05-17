@@ -95,3 +95,9 @@ a.generate{
     margin: 700px 0 0 45%;
     z-index: 10;
 }
+
+
+a:hover {
+    color:rgba(189, 195, 199,1.0);
+    background: black;
+    }
