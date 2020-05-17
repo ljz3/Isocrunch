@@ -20,7 +20,7 @@ h1{
 ol{	 
 	position: absolute;
 	left:50%;
-	top: 1050px;
+	top: 1150px;
 	transform: translate(-50%, -700px);
 	width:700px;
 	display: inline-block;
