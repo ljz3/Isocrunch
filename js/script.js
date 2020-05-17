@@ -288,6 +288,9 @@ function startTimer(duration, display) {
                 clearInterval();
             }
             document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
+            document.getElementById("exerciseName").value = myObject[index][0];
+            document.getElementById("exerciseUpcoming").value = myObject[index+1][0];
+            
         }
         
         console.log(index);
