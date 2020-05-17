@@ -1,4 +1,6 @@
 
+
+
 //initialization of arrays storing all the workouts able to be used
 
 var abWorkouts = [["Plank Hops", 1, true,null], ["Pushup Position Plank", 1, false,null], ["Situps",2, true, null],
@@ -15,7 +17,7 @@ var upperChestWorkouts = [["Tension Pushup Hold",1,false, null],["Isometric Ches
 
 
 var lowerChestWorkouts = [ ["Incline Tension Pushup Hold",1,false, null], ["Isometric Chest Push",1,true,null],["Incline Pushup", 2, true, "Knee Incline Pushup"],
-["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false]];
+["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false, null]];
 
 
 
@@ -31,6 +33,7 @@ var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], [
 var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",1,true,null],
 ["Burpees",4,true,"Burpee With Knee Pushup",null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
+var gluteWorkouts = [["Wall sit",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
 var hamWorkouts = [["Hip Bridges",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],
 ["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"],["Kickstand Deadlift", 2, false, null]];
@@ -117,35 +120,13 @@ function createWorkout(muscleGroups,diff,length){
 
 
 /*
-    BUG: Multiple runes will cause this to run faster due to interval
-
-    Function to do a countdown timer. (timeleft) must be an integer of 40||20 depending on, "on/off" exercise
-*/
-
-/*
-var downloadTimer = setInterval(function(timeleft){
-    if(timeleft <= 0){
-        clearInterval(downloadTimer); //stops ticking
-        document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
-        
-    } 
-    else {
-        document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
-                                                                                //Element by ID gets the id in html corresponding here
-    }
-    timeleft -= 1;
-}, 1000);
-*/
-
-
-
-/*
     Creates workout array using set values and returns that whole array. 
 */
 function makeWorkoutArray(){
     //array of all potential clicked exercises
     var potentials = ["upperChest","lowerChest","calves","quads","hamstrings","glutes","biceps","triceps","upperBack","lowerBack"];
     var muscles = [];
+
     //get array of muscles
     for(var i = 0; i < potentials.length; i++){
         console.log(potentials[i]);
@@ -155,82 +136,139 @@ function makeWorkoutArray(){
         }
     }
 
-    
+
+    //adds exercise variable arrays in orderd to call the makeWorkout
+    var exerciseGroups = [];
+    for(var j = 0; j < muscles.length; j++){
+
+        switch(muscles[j]){
+            case "upperChest":
+                exerciseGroups.push(upperChestWorkouts);
+                break;
+
+            case "lowerChest":
+                exerciseGroups.push(lowerChestWorkouts);
+                break;
+
+            case "calves":
+                exerciseGroups.push(calveWorkouts);
+                break;
+
+            case "quads":
+                exerciseGroups.push(quadWorkouts);
+                break;
+
+            case "hamstrings":
+                exerciseGroups.push(hamWorkouts);
+                break;
+
+            case "glutes":
+               exerciseGroups.push(gluteWorkouts);
+                break;
+
+            case "biceps":
+                exerciseGroups.push(bicepWorkouts);
+                break;
+
+            case "triceps":
+                exerciseGroups.push(tricepWorkouts);
+                break;
+
+            case "upperBack":
+                exerciseGroups.push(upperBackWorkouts);
+                break;
+
+            case "lowerBack":
+                exerciseGroups.push(lowerBackWorkouts);
+                break;
+        }
+    }
     
 
     //get difficulty
-    var diff = document.getElementById(myRange).value;
+    var slider = document.getElementById("myRange");
+    var diff = slider.value;
+
     //get length
-    var length = parseInt(document.getElementById(lengthOfWorkout).value);
+    var len = document.getElementById("fname");
+    var length = parseInt(len.value);
+
+    
+    
+    //console.log(createWorkout(exerciseGroups,diff,length));
 
 
-    console.log(muscles);
-    console.log(diff);
-    console.log(length);
-    return createWorkout(muscles,diff,length); //returns totalArr from workoutArray
+     
+    
+    localStorage.setItem('myObject', JSON.stringify(createWorkout(exerciseGroups,diff,length)));
+    
+    //totalWorkout = (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
+    
     
 };
 
 
-function makeList(listData1) {
+
+
+
+
+function makeList() {
+
+    var myObject = JSON.parse(localStorage.getItem('myObject'));
+
     // Establish the array which acts as a data source for the list
-    let listData = [
-        'I',
-        'Am',
-        'Very',
-        'Sad',
-        ':(',
-        'I',
-        'Am',
-        'Very',
-        'Sad',
-        ':(',
-        'I',
-        'Am',
-        'Very',
-        'Sad',
-        ':(',
-        'I',
-        'Am',
-        'Very',
-        'Sad',
-        ':(',
-        'I',
-        'Am',
-        'Very',
-        'Sad',
-        ':(',
-        'I',
-        'Am',
-        'Very',
-        'Sad',
-        ':(',
-    ],
+    console.log("theybnoticeme");
+    console.log(myObject);
+    let listData = myObject,
     // Make a container element for the list
     listContainer = document.createElement('div'),
     // Make the list
-    listElement = document.createElement('ul'),
+    listElement = document.createElement('ol'),
     // Set up a loop that goes through the items in listItems one at a time
-    numberOfListItems = listData.length,
-    listItem,
-    i;
+    numberOfListItems = listData.length,listItem,i;
 
     // Add it to the page
     document.getElementsByTagName('body')[0].appendChild(listContainer);
     listContainer.appendChild(listElement);
     
 
-    for (i = 0; i < numberOfListItems; ++i) {
+    for (i = 0; i < listData.length; ++i) {
         // create an item for each one
         listItem = document.createElement('li');
 
         // Add the item text
-        listItem.innerHTML = listData[i];
-
+        if(i%2==0){
+        listItem.innerHTML = listData[i][0]+"--40s"; //[i][1] gets name
+        }
+        else{
+            listItem.innerHTML = listData[i][0]+"--20s";
+        }
         // Add listItem to the listElement
         listElement.appendChild(listItem);
     }
 }
 
-// Usage
-makeList();
+
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 1,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};

@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-
 <html>
-    <script type="text/javascript" src = "js/script.js"></script>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    
-    <div id="countdown" ></div> <!--Creating the id element utilised in JS for timer -->
-    
-    <div id="image"></div> <!-- Image where the exercise will go-->
+        <link rel="stylesheet" href="css/superslides.css">
+        
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    </head>
+    <body>
+        <div id="slides">
+
+            <div class="overlay"></div>
+
+            <div class="slides-container">
+              <img src="img/slides/beach.jpg" alt="">
+              <img src="img/slides/running.jpg" alt="">
+              <img src="img/slides/jogger.jpg" alt="">
+            </div>
+
+            <div class="titleMessage">
+                <div class="heading">
+                    <p class="main">ISOCRUNCH</p>
+                </div>
+            </div>
+
+            <nav class="slides-navigation">
+                <a href="#" class="next"></a>
+                <a href="#" class="prev"></a>
+            </nav>
+
+        </div>
 
 
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <body> <!-- Practise example showing implementation of timer. Refer to TODO in script.js for issues-->
-        <form>
-        <input type="button" onclick="downloadTimer(false)" value="Call function">
-        </form>
-        <p>By pressing the button, a function will be called. </p>
+    <script src="js/titlepage.js"></script>
+
     </body>
 </html>

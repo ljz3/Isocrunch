@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+<meta charset = "UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+
+    <script type="text/javascript" src = "js/script.js"></script>
+    <link rel ="stylesheet" type="text/css" href="css/maker-style.css">
+    <script src="js/maker.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <div class="overlay"></div>
+    <div class="checkboxes">
+            
+        <!--Checkbox Script -->
+
+        <div>
+            <!--Full Body Checkboxes-->
+            <dl><input type="checkbox" onClick="toggle_full(this)" />Full Body<br/></dl>
+            
+        </div>
+
+        <div>
+            <!--Chest Checkboxes-->
+            <dl><input type="checkbox" name="Chest" onClick="toggle_chest(this)" />Chest<br/></dl>
+            <dd><input type="checkbox" name="Chest" class="child" id="upperChest" value="Upper Chest">Upper Chest<br/></dd>
+            <dd><input type="checkbox" name="Chest" class="child" id="lowerChest" value="Lower Chest">Lower Chest<br/></dd>
+        </div>
+        
+        <div>
+            <!--Legs Checkboxes-->
+            <dl><input type="checkbox" name="Legs" onClick="toggle_legs(this)" />Legs<br/></dl>
+            <dd><input type="checkbox" name="Legs" class="child" id = "calves" value="Calves">Calves<br/></dd>
+            <dd><input type="checkbox" name="Legs" class="child" id = "quads" value="Quads">Quads<br/></dd>
+            <dd><input type="checkbox" name="Legs" class="child" id = "hamstrings" value="Hamstrings">Hamstrings<br/></dd>
+            <dd><input type="checkbox" name="Legs" class="child" id = "glutes" value="Glutes">Glutes<br/></dd>
+        </div>
+            
+        <div>
+            <!--Arms Checkboxes-->
+            <dl><input type="checkbox" name="Arms" onClick="toggle_arms(this)" />Arms<br/></dl>
+            <dd><input type="checkbox" name="Arms" class="child" id = "biceps" value="Biceps">Biceps<br/></dd>
+            <dd><input type="checkbox" name="Arms" class="child" id = "triceps" value="Triceps">Triceps<br/></dd>
+        </div>
+
+        <div>
+            <!--Back Checkboxes-->
+            <dl><input type="checkbox" name="Back" onClick="toggle_back(this)" />Back<br/></dl>
+            <dd><input type="checkbox" name="Back" class="child" id = "upperBack" value="Upper Back">Upper Back<br/></dd>
+            <dd><input type="checkbox" name="Back" class="child" id = "lowerBack" value="Lower Back">Lower Back<br/></dd>
+        </div>    
+
+                
+    </div>
+
+ 
+    <div class= "textfield" id = "lengthOfWorkout">
+        <form>
+            <label for="fname">Time Frame in min:</label><br>
+            <input type="text" id="fname" class="fname" value=""><br><br>
+        </form> 
+    </div>
+
+              
+                
+
+            <div class="slidecontainer">
+                <div class = "slidercontainer">
+
+                    <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <p class="sliderword" style = "z-index: 6 ;color:white ;background-color:rgb(127, 140, 141); border-radius:25px; padding:5px; position: absolute; margin: 400px 0 0 calc(55% + 30px); font-weight: bolder;">Difficulty: <span id="demo"></span> </p>
+
+                </div>
+  
+                
+                <script>
+                    var slider = document.getElementById("myRange");
+                    var output = document.getElementById("demo");
+                    output.innerHTML = slider.value;
+                        
+                    slider.oninput = function() {
+                    output.innerHTML = this.value;
+                    }
+                </script>
+
+            </div>
+
+            <div class = "a a.generate">
+
+                <a class = "generate" onclick="window.location.href = 'overview.html' ; makeWorkoutArray()" type="button">Generate Workout</a> 
+                    
+            </div>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>
