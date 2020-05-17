@@ -4,9 +4,9 @@
 //initialization of arrays storing all the workouts able to be used
 
 var abWorkouts = [["Plank Hops", 1, true,null], ["Pushup Position Plank", 1, false,null], ["Situps",2, true, null],
-["Lower Plank",2,false, "Partial Plank"],["Crunches",2,true, null],["Mountain Climbers",3,false,null], 
+["Plank",2,false, "Partial Plank"],["Crunches",2,true, null],["Mountain Climbers",3,false,null], 
 ["V Ups",3,true,null],["Plank Raise Tap Crunch", 4, false, "Plank"], ["Shoulder Tap Pushups",4,true, "Shoulder Tap Knee Pushups"],
-["Lateral Plank Walks",4,true, "Plank"], ["Jackhammers",5,true, "Situp"]];
+["Lateral Plank Walks",4,true, "Plank"], ["Jackhammers",5,true, "Situps"]];
 
 
 
@@ -27,7 +27,7 @@ var tricepWorkouts = [["Incline Tension Pushup Hold",1,false, null],["Incline Pu
 
 
 var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], ["Jump Squats",3,true,null],
-["Standing Calf Raise on Elevated Surface", 2, true, "Standing Calf Raise"], ["Jumping Jacks",1,false,null],["Tiptoe Walk",1,true,null]];
+["Standing Calf Raise on Elevated Surface", 2, true, "Calf Raise"], ["Jumping Jacks",1,false,null],["Tiptoe Walk",1,true,null]];
 
 
 var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",1,true,null],
