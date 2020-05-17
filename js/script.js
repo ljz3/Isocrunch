@@ -18,7 +18,7 @@ var upperChestWorkouts = [["Tension Pushup Hold",1,false, null],["Isometric Ches
 
 
 var lowerChestWorkouts = [ ["Incline Tension Pushup Hold",1,false, null], ["Isometric Chest Push",1,true,null],["Incline Pushup", 2, true, "Knee Incline Pushup"],
-["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false]];
+["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false, null]];
 
 
 
@@ -120,29 +120,6 @@ function createWorkout(muscleGroups,diff,length){
 
 
 /*
-    BUG: Multiple runes will cause this to run faster due to interval
-
-    Function to do a countdown timer. (timeleft) must be an integer of 40||20 depending on, "on/off" exercise
-*/
-
-/*
-var downloadTimer = setInterval(function(timeleft){
-    if(timeleft <= 0){
-        clearInterval(downloadTimer); //stops ticking
-        document.getElementById("countdown").innerHTML = "Finished"; //do something once countdown timer completed
-        
-    } 
-    else {
-        document.getElementById("countdown").innerHTML = timeleft + " seconds"; //keeps ticking
-                                                                                //Element by ID gets the id in html corresponding here
-    }
-    timeleft -= 1;
-}, 1000);
-*/
-
-
-
-/*
     Creates workout array using set values and returns that whole array. 
 */
 function makeWorkoutArray(){
@@ -159,26 +136,74 @@ function makeWorkoutArray(){
         }
     }
 
-    
+
+    //adds exercise variable arrays in orderd to call the makeWorkout
+    var exerciseGroups = [];
+    for(var j = 0; j < muscles.length; j++){
+
+        switch(muscles[j]){
+            case "upperChest":
+                exerciseGroups.push(upperChestWorkouts);
+                break;
+
+            case "lowerChest":
+                exerciseGroups.push(lowerChestWorkouts);
+                break;
+
+            case "calves":
+                exerciseGroups.push(calveWorkouts);
+                break;
+
+            case "quads":
+                exerciseGroups.push(quadWorkouts);
+                break;
+
+            case "hamstrings":
+                exerciseGroups.push(hamWorkouts);
+                break;
+
+            //case "glutes":
+            //    exerciseGroups.push(gluteWorkouts);
+            //    break;
+
+            case "biceps":
+                exerciseGroups.push(bicepWorkouts);
+                break;
+
+            case "triceps":
+                exerciseGroups.push(tricepWorkouts);
+                break;
+
+            case "upperBack":
+                exerciseGroups.push(upperBackWorkouts);
+                break;
+
+            case "lowerBack":
+                exerciseGroups.push(lowerBackWorkouts);
+                break;
+        }
+    }
     
 
     //get difficulty
-    //var diff = document.getElementById(demo).value;
+    var slider = document.getElementById("myRange");
+    var diff = slider.value;
+
     //get length
-    //var length = parseInt(document.getElementById(lengthOfWorkout).value);
+    var len = document.getElementById("fname");
+    var length = parseInt(len.value);
 
-
-    //console.log(muscles);
-    //console.log(diff);
-    //console.log(length);
     
-    console.log(createWorkout(muscles,5,10));
+    
+    //console.log(createWorkout(exerciseGroups,diff,length));
 
-
-    return createWorkout(muscles,diff,10); //returns totalArr from workoutArray
+    
+    return (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
     
     
 };
+
+
 
 
 function makeList(listData) {
@@ -209,3 +234,28 @@ function makeList(listData) {
         listElement.appendChild(listItem);
     }
 }
+
+
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var fiveMinutes = 60 * 1,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
