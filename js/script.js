@@ -196,7 +196,6 @@ function makeWorkoutArray(){
     
     
     console.log(createWorkout(exerciseGroups,diff,length));
-    console.log(createWorkout(exerciseGroups,diff,length));
 
 
     
