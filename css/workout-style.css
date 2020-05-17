@@ -71,6 +71,7 @@ a{
     position: relative;
     top:20%;
     z-index: 3;
+    cursor: pointer;
     
     
   }

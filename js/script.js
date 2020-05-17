@@ -288,9 +288,19 @@ function startTimer(duration, display) {
             if(index < duration.length){
             document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
             document.getElementById("exerciseName").innerHTML = myObject[index][0];
+            
+            if(myObject[index][3] != null){
+                document.getElementById("alternate").innerHTML = myObject[index][3];
+            }else{
+                document.getElementById("alternate").innerHTML = "No Alternate";
+            }
+            
             if(index+1!=duration.length){
                 document.getElementById("exerciseUpcoming").innerHTML = myObject[index+1][0];
+            }else{
+                document.getElementById("exerciseUpcoming").innerHTML = "End";
             }
+            
             
             }
         }
@@ -304,6 +314,17 @@ function startTimer(duration, display) {
     }, 1000);
 
     // }
+}
+function alternate(){
+    if(document.getElementById("alternate").innerHTML !="No Alternate" ){
+        var name=document.getElementById("exerciseName").innerHTML; 
+        var alternate= document.getElementById("alternate").innerHTML;
+        document.getElementById("exerciseName").innerHTML =alternate;
+        document.getElementById("alternate").innerHTML=name;
+        document.getElementById("exerciseDisplay").src = "img/Exercises/"+alternate+".gif";
+
+    }
+
 }
 
 
@@ -366,6 +387,11 @@ function timer() {
     document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[0][0]+".gif";
     document.getElementById("exerciseName").innerHTML= myObject[0][0];
     document.getElementById("exerciseUpcoming").innerHTML = myObject[1][0];
+    if(myObject[0][3] != null){
+        document.getElementById("alternate").innerHTML = myObject[0][3];
+    }else{
+        document.getElementById("alternate").innerHTML = "No Alternate";
+    }
     startTimer(duration, display);
 };
 
