@@ -1,6 +1,3 @@
-
-
-
 //initialization of arrays storing all the workouts able to be used
 
 var images =["Archer Pushups.gif","Arm Lift.gif","Arm Rotations.gif","Back Widows.gif","Burpees With Knee Pushups.gif","Burpees.gif","Calf Raises.gif","Clap Knee Pushups.gif",
@@ -31,7 +28,6 @@ var lowerChestWorkouts = [ ["Incline Tension Pushup Hold",1,false, null], ["Isom
 ["Pseudo Pushups",5,true, "Knee Pseudo Pushups"], ["Incline Pushup Hold",2,false, null]];
 
 
-
 var tricepWorkouts = [["Incline Tension Pushup Hold",1,false, null],["Incline Pushup", 1, true, "Knee Incline Pushup"],["Tricep Dips",3,false,null]
 ["Pushups",3,true, "Knee Pushups"],["Shoulder Tap Pushups",4,true, "Shoulder Tap Knee Pushups"],["Burpees",4,true, "Burpees With Knee Pushups"],
 ["Lateral Plank Walks",4,true, "Plank"],["Clap Pushups",6,true, "Clap Knee Pushups"]];
@@ -44,7 +40,9 @@ var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], [
 var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",1,true,null],
 ["Burpees",4,true,"Burpee With Knee Pushup",null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
+
 var gluteWorkouts = [["Wall sit",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
+
 
 var hamWorkouts = [["Hip Bridges",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],
 ["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"],["Kickstand Deadlift", 2, false, null]];
@@ -128,8 +126,6 @@ function createWorkout(muscleGroups,diff,length){
 }
 
 
-
-
 /*
     Creates workout array using set values and returns that whole array. 
 */
@@ -141,13 +137,11 @@ function makeWorkoutArray(){
 
     //get array of muscles
     for(var i = 0; i < potentials.length; i++){
-        console.log(potentials[i]);
         var check =document.getElementById(potentials[i])
         if(check.checked){
             muscles.push(potentials[i]);
         }
     }
-
 
     //adds exercise variable arrays in orderd to call the makeWorkout
     var exerciseGroups = [];
@@ -195,7 +189,6 @@ function makeWorkoutArray(){
                 break;
         }
     }
-    
 
     //get difficulty
     var slider = document.getElementById("myRange");
@@ -205,23 +198,8 @@ function makeWorkoutArray(){
     var len = document.getElementById("fname");
     var length = parseInt(len.value);
 
-    
-    
-    //console.log(createWorkout(exerciseGroups,diff,length));
-
-
-     
-    
-    localStorage.setItem('myObject', JSON.stringify(createWorkout(exerciseGroups,diff,length)));
-    
-    //totalWorkout = (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
-    
-    
+    localStorage.setItem('myObject', JSON.stringify(createWorkout(exerciseGroups,diff,length)));  
 };
-
-
-
-
 
 
 function makeList() {
@@ -229,13 +207,14 @@ function makeList() {
     var myObject = JSON.parse(localStorage.getItem('myObject'));
 
     // Establish the array which acts as a data source for the list
-    console.log("theybnoticeme");
-    console.log(myObject);
     let listData = myObject,
+
     // Make a container element for the list
     listContainer = document.createElement('div'),
+
     // Make the list
     listElement = document.createElement('ol'),
+
     // Set up a loop that goes through the items in listItems one at a time
     numberOfListItems = listData.length,listItem,i;
 
@@ -245,28 +224,30 @@ function makeList() {
     
 
     for (i = 0; i < listData.length; ++i) {
+
         // create an item for each one
         listItem = document.createElement('li');
 
         // Add the item text
-        if(i%2==0){
-        listItem.innerHTML = listData[i][0]+" -- 40s"; //[i][1] gets name
+        if(i % 2 == 0){
+            listItem.innerHTML = listData[i][0]+" -- 40s"; //[i][1] gets name
         }
         else{
             listItem.innerHTML = listData[i][0]+" -- 20s";
         }
+
         // Add listItem to the listElement
         listElement.appendChild(listItem);
     }
 }
 
 
-
 function startTimer(duration, display) {
+
     var index = 0;
     var myObject = JSON.parse(localStorage.getItem('myObject'));
     var timer = duration[index], minutes, seconds;
-    console.log(duration);
+
     setInterval(function () {
 
         minutes = parseInt(timer / 60, 10);
@@ -277,8 +258,6 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds;
 
-        console.log(seconds);
-
         if (--timer < 0) {
             timer = duration[index];
         }
@@ -286,35 +265,32 @@ function startTimer(duration, display) {
             index++;
             
             if(index < duration.length){
-            document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
-            document.getElementById("exerciseName").innerHTML = myObject[index][0];
+                document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
+                document.getElementById("exerciseName").innerHTML = myObject[index][0];
             
-            if(myObject[index][3] != null){
-                document.getElementById("alternate").innerHTML = myObject[index][3];
-            }else{
-                document.getElementById("alternate").innerHTML = "No Alternate";
-            }
-            
-            if(index+1!=duration.length){
-                document.getElementById("exerciseUpcoming").innerHTML = myObject[index+1][0];
-            }else{
-                document.getElementById("exerciseUpcoming").innerHTML = "End";
-            }
-            
-            
+                if(myObject[index][3] != null){
+                    document.getElementById("alternate").innerHTML = myObject[index][3];
+                }else{
+                    document.getElementById("alternate").innerHTML = "No Alternate";
+                }
+                
+                if(index+1!=duration.length){
+                    document.getElementById("exerciseUpcoming").innerHTML = myObject[index+1][0];
+                }else{
+                    document.getElementById("exerciseUpcoming").innerHTML = "End";
+                }
             }
         }
+
         if(index >= duration.length){
             display.textContent = "0" + 0 + ":" + 0 + "0";
             clearInterval();
             return;
         }
-        
-        console.log(index);
     }, 1000);
-
-    // }
 }
+
+
 function alternate(){
     if(document.getElementById("alternate").innerHTML !="No Alternate" ){
         var name=document.getElementById("exerciseName").innerHTML; 
@@ -322,59 +298,49 @@ function alternate(){
         document.getElementById("exerciseName").innerHTML =alternate;
         document.getElementById("alternate").innerHTML=name;
         document.getElementById("exerciseDisplay").src = "img/Exercises/"+alternate+".gif";
-
     }
-
 }
 
 
 function check(){
+
     var potentials = ["upperChest","lowerChest","calves","quads","hamstrings","glutes","biceps","triceps","upperBack","lowerBack"];
     var j;
-    console.log("hi")
-
-
 
     try{
-    var len = document.getElementById("fname");
-    var length = parseInt(len.value);
+        var len = document.getElementById("fname");
+        var length = parseInt(len.value);
     }catch(err){
         failure();
-
     }
 
     //get array of muscles
     for(var i = 0; i < potentials.length; i++){
-        console.log(potentials[i]);
         var check = document.getElementById(potentials[i])
         if(check.checked){
             j++;
         }
     }
+
     if(i == 0) {
         failure();
     }else{
         makeWorkoutArray();
         window.location.href = 'overview.html';
     }
-
-
 }
+
+
 function failure(){
-    alert("Hello! I am an alert box!!");
-    console.log("nope");
+    alert("Action Failed");
 
 }
-
-
 
 
 function timer() {
-    console.log("hi");
     var myObject = JSON.parse(localStorage.getItem('myObject'));
     var display = document.querySelector('#time');
-    // console.log(myObject);
-    // console.log(myObject[0][2]);
+
     var duration = [];
     for(var i = 0; i< myObject.length;i++){
         if(myObject[i][2]){
@@ -383,15 +349,16 @@ function timer() {
             duration.push(20);
         }
     }
-    // console.log(duration);
+    
     document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[0][0]+".gif";
     document.getElementById("exerciseName").innerHTML= myObject[0][0];
     document.getElementById("exerciseUpcoming").innerHTML = myObject[1][0];
+
     if(myObject[0][3] != null){
         document.getElementById("alternate").innerHTML = myObject[0][3];
     }else{
         document.getElementById("alternate").innerHTML = "No Alternate";
     }
+    
     startTimer(duration, display);
 };
-
