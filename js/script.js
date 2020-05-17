@@ -238,10 +238,10 @@ function makeList() {
 
         // Add the item text
         if(i%2==0){
-        listItem.innerHTML = listData[i][0]+"--40s"; //[i][1] gets name
+        listItem.innerHTML = listData[i][0]+" -- 40s"; //[i][1] gets name
         }
         else{
-            listItem.innerHTML = listData[i][0]+"--20s";
+            listItem.innerHTML = listData[i][0]+" -- 20s";
         }
         // Add listItem to the listElement
         listElement.appendChild(listItem);
