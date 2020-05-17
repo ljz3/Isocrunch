@@ -1,0 +1,35 @@
+.item1 { grid-area: image; }
+.item2 { grid-area: name; }
+.item3 { grid-area: time; }
+.item4 { grid-area: upcoming; }
+.item5 {grid-area: alternate;}
+
+
+.grid-container {
+  
+  display: grid;
+  grid-template-areas:
+    'image image image time time name'
+    'image image image time time upcoming'
+    'image image image time time alternate';
+    grid-template-rows: 200px 200px 80px;
+  grid-gap: 10px;
+  background-color: #2c3e50;
+  padding: 10px;
+  margin-top: 15%;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+img#exerciseDisplay{
+    position: relative;
+    width: 600px;
+    height:450px;
+    padding: 1px;
+    border: 10px black;
+
+}
