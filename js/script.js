@@ -264,6 +264,7 @@ function makeList() {
 
 function startTimer(duration, display) {
     var index = 0;
+    var myObject = JSON.parse(localStorage.getItem('myObject'));
     var timer = duration[index], minutes, seconds;
     console.log(duration);
     setInterval(function () {
@@ -283,11 +284,20 @@ function startTimer(duration, display) {
         }
         if(timer == 0){
             index++;
-            if(index >= duration.length){
-                display.textContent = "0" + 0 + ":" + 0 + "0";
-                clearInterval();
-            }
+            
+            if(index < duration.length){
             document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
+            document.getElementById("exerciseName").value = myObject[index][0];
+            if(index+1!=duration.length){
+                document.getElementById("exerciseUpcoming").value = myObject[index+1][0];
+            }
+            
+            }
+        }
+        if(index >= duration.length){
+            display.textContent = "0" + 0 + ":" + 0 + "0";
+            clearInterval();
+            return;
         }
         
         console.log(index);
@@ -339,7 +349,7 @@ function failure(){
 
 
 function timer() {
-    console.log("hi")
+    console.log("hi");
     var myObject = JSON.parse(localStorage.getItem('myObject'));
     var display = document.querySelector('#time');
     // console.log(myObject);
@@ -354,6 +364,8 @@ function timer() {
     }
     // console.log(duration);
     document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[0][0]+".gif";
+    document.getElementById("exerciseName").value = myObject[0][0];
+    document.getElementById("exerciseUpcoming").value = myObject[1][0];
     startTimer(duration, display);
 };
 
