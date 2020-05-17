@@ -134,6 +134,7 @@ function createWorkout(muscleGroups,diff,length){
     Creates workout array using set values and returns that whole array. 
 */
 function makeWorkoutArray(){
+    
     //array of all potential clicked exercises
     var potentials = ["upperChest","lowerChest","calves","quads","hamstrings","glutes","biceps","triceps","upperBack","lowerBack"];
     var muscles = [];
@@ -282,17 +283,63 @@ function startTimer(duration, display) {
         }
         if(timer == 0){
             index++;
+            if(index >= duration.length){
+                display.textContent = "0" + 0 + ":" + 0 + "0";
+                clearInterval();
+            }
+            document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[index][0]+".gif";
         }
-        if(index >= duration.length){
-            display.textContent = "0" + 0 + ":" + 0 + "0";
-        }
+        
         console.log(index);
     }, 1000);
 
     // }
 }
 
-window.onload = function () {
+
+function check(){
+    var potentials = ["upperChest","lowerChest","calves","quads","hamstrings","glutes","biceps","triceps","upperBack","lowerBack"];
+    var j;
+    console.log("hi")
+
+
+
+    try{
+    var len = document.getElementById("fname");
+    var length = parseInt(len.value);
+    }catch(err){
+        failure();
+
+    }
+
+    //get array of muscles
+    for(var i = 0; i < potentials.length; i++){
+        console.log(potentials[i]);
+        var check = document.getElementById(potentials[i])
+        if(check.checked){
+            j++;
+        }
+    }
+    if(i == 0) {
+        failure();
+    }else{
+        makeWorkoutArray();
+        window.location.href = 'overview.html';
+    }
+
+
+}
+function failure(){
+    alert("Hello! I am an alert box!!");
+    console.log("nope");
+
+}
+
+
+
+
+function timer() {
+    console.log("hi")
     var myObject = JSON.parse(localStorage.getItem('myObject'));
     var display = document.querySelector('#time');
     // console.log(myObject);
@@ -306,5 +353,7 @@ window.onload = function () {
         }
     }
     // console.log(duration);
+    document.getElementById("exerciseDisplay").src = "img/Exercises/"+myObject[0][0]+".gif";
     startTimer(duration, display);
 };
+
