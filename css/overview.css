@@ -1,21 +1,17 @@
-
 /*list section*/
 .content {
-		max-width: 540px;
-		height:100%;
-		margin: auto;
-		text-align: center;
-		font-size: 37px;
-		font-family: Georgia, serif;
-		
-		z-index: 3;
-	  }
+	max-width: 540px;
+	height:100%;
+	margin: auto;
+	text-align: center;
+	font-size: 37px;
+	font-family: Georgia, serif;
+	z-index: 3;
+}
 
 h1{
 	color: aliceblue;
 }
-
-
 
 ol{	 
 	position: absolute;
@@ -29,9 +25,8 @@ ol{
 	zoom:1;
 	*display: inline;
 	z-index: 3;
-  
-
 }
+
 /*items in list*/
 li {
     width:700px;
@@ -44,17 +39,15 @@ li {
 	font-size: 28px;
 	font-weight: bold;
 	z-index: 3;
+}
 
-  }
-
-  /*Button*/
+/*Button*/
 a{
 	line-height:4;
 	color:black;
 	font-weight: bolder;
 	text-decoration: none;
 	position: absolute;
-	
     border-radius: 25px;
 	width:100px;
 	height:60px;
@@ -64,31 +57,22 @@ a{
 	top:20%;
 	z-index: 3;
 	cursor: pointer;
-	
-	
 }
 
 a:hover {
-color:rgba(189, 195, 199,1.0);
-background: black;
-}
-
-a.active{
-	color:lime;
+	color:rgba(189, 195, 199,1.0);
+	background: black;
 }
 
 /*background*/
-
 html{
-	
 	background: url("../img/Pushup+Background.jpg") rgba(52, 73, 94,0.4);
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
 	min-height: 100%;
 	margin: 0;
-	background-blend-mode: multiply;
-		
-  }
+	background-blend-mode: multiply;	
+}
   
 
