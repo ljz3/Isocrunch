@@ -195,7 +195,9 @@ function makeWorkoutArray(){
 
     
     
-    //console.log(createWorkout(exerciseGroups,diff,length));
+    console.log(createWorkout(exerciseGroups,diff,length));
+    console.log(createWorkout(exerciseGroups,diff,length));
+
 
     
     return (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
