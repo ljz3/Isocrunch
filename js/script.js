@@ -251,8 +251,11 @@ function makeList() {
 
 
 function startTimer(duration, display) {
-    var timer = duration, minutes, seconds;
+    var index = 0;
+    var timer = duration[index], minutes, seconds;
+    console.log(duration);
     setInterval(function () {
+
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -261,14 +264,36 @@ function startTimer(duration, display) {
 
         display.textContent = minutes + ":" + seconds;
 
+        console.log(seconds);
+
         if (--timer < 0) {
-            timer = duration;
+            timer = duration[index];
         }
+        if(timer == 0){
+            index++;
+        }
+        if(index >= duration.length){
+            display.textContent = "0" + 0 + ":" + 0 + "0";
+        }
+        console.log(index);
     }, 1000);
+
+    // }
 }
 
 window.onload = function () {
-    var fiveMinutes = 60 * 1,
-        display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    var myObject = JSON.parse(localStorage.getItem('myObject'));
+    var display = document.querySelector('#time');
+    // console.log(myObject);
+    // console.log(myObject[0][2]);
+    var duration = [];
+    for(var i = 0; i< myObject.length;i++){
+        if(myObject[i][2]){
+            duration.push(40);
+        }else{
+            duration.push(20);
+        }
+    }
+    // console.log(duration);
+    startTimer(duration, display);
 };
