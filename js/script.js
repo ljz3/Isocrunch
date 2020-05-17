@@ -298,10 +298,6 @@ window.onload = function () {
     // console.log(myObject);
     // console.log(myObject[0][2]);
     var duration = [];
-
-    //creates array of 40/20 
-    
-    document.getElementById("exerciseDisplay").src= ("img/"+myObject[0][0]+".gif");
     for(var i = 0; i< myObject.length;i++){
         if(myObject[i][2]){
             duration.push(40);
