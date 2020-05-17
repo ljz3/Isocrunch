@@ -1,7 +1,6 @@
 
 
 
-
 //initialization of arrays storing all the workouts able to be used
 
 var abWorkouts = [["Plank Hops", 1, true,null], ["Pushup Position Plank", 1, false,null], ["Situps",2, true, null],
@@ -34,6 +33,7 @@ var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], [
 var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",1,true,null],
 ["Burpees",4,true,"Burpee With Knee Pushup",null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
+var gluteWorkouts = [["Wall sit",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
 var hamWorkouts = [["Hip Bridges",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],
 ["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"],["Kickstand Deadlift", 2, false, null]];
@@ -162,9 +162,9 @@ function makeWorkoutArray(){
                 exerciseGroups.push(hamWorkouts);
                 break;
 
-            //case "glutes":
-            //    exerciseGroups.push(gluteWorkouts);
-            //    break;
+            case "glutes":
+               exerciseGroups.push(gluteWorkouts);
+                break;
 
             case "biceps":
                 exerciseGroups.push(bicepWorkouts);
@@ -195,12 +195,14 @@ function makeWorkoutArray(){
 
     
     
-    console.log(createWorkout(exerciseGroups,diff,length));
-    console.log(createWorkout(exerciseGroups,diff,length));
+    //console.log(createWorkout(exerciseGroups,diff,length));
 
 
+     
     
-    return (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
+    localStorage.setItem('myObject', JSON.stringify(createWorkout(exerciseGroups,diff,length)));
+    
+    //totalWorkout = (createWorkout(muscles,diff,length)); //returns totalArr from workoutArray
     
     
 };
@@ -208,30 +210,39 @@ function makeWorkoutArray(){
 
 
 
-function makeList(listData) {
-    // Establish the array which acts as a data source for the list
 
+
+function makeList() {
+
+    var myObject = JSON.parse(localStorage.getItem('myObject'));
+
+    // Establish the array which acts as a data source for the list
+    console.log("theybnoticeme");
+    console.log(myObject);
+    let listData = myObject,
     // Make a container element for the list
     listContainer = document.createElement('div'),
     // Make the list
-    listElement = document.createElement('ul'),
+    listElement = document.createElement('ol'),
     // Set up a loop that goes through the items in listItems one at a time
-    numberOfListItems = listData.length,
-    listItem,
-    i;
+    numberOfListItems = listData.length,listItem,i;
 
     // Add it to the page
     document.getElementsByTagName('body')[0].appendChild(listContainer);
     listContainer.appendChild(listElement);
     
 
-    for (i = 0; i < numberOfListItems; ++i) {
+    for (i = 0; i < listData.length; ++i) {
         // create an item for each one
         listItem = document.createElement('li');
 
         // Add the item text
-        listItem.innerHTML = listData[i];
-
+        if(i%2==0){
+        listItem.innerHTML = listData[i][0]+"--40s"; //[i][1] gets name
+        }
+        else{
+            listItem.innerHTML = listData[i][0]+"--20s";
+        }
         // Add listItem to the listElement
         listElement.appendChild(listItem);
     }
