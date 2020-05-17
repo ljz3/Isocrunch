@@ -33,6 +33,7 @@ var calveWorkouts = [["High Knees",1,true,null], ["Calf Raises",1,false,null], [
 var quadWorkouts = [["High Knees",1,true,null], ["Wall sit",1,false,null], ["Mountain Climbers",1,true,null],
 ["Burpees",4,true,"Burpee With Knee Pushup",null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
+var gluteWorkouts = [["Wall sit",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"]];
 
 var hamWorkouts = [["Hip Bridges",1,false,null], ["Mountain Climbers",1,true,null], ["Jump Squats",3,true,null],
 ["One Legged Squat",7,true,"Squat"], ["Pistol Squat",9,true,"Squat"],["Kickstand Deadlift", 2, false, null]];
@@ -161,9 +162,9 @@ function makeWorkoutArray(){
                 exerciseGroups.push(hamWorkouts);
                 break;
 
-            //case "glutes":
-            //    exerciseGroups.push(gluteWorkouts);
-            //    break;
+            case "glutes":
+               exerciseGroups.push(gluteWorkouts);
+                break;
 
             case "biceps":
                 exerciseGroups.push(bicepWorkouts);
